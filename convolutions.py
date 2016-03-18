@@ -126,7 +126,7 @@ def main():
     #     prof.print_stats()
 
     # prof = lp.LineProfiler()
-    a_writeMBps, a_readMBps = convolutions(sidelength=150, n_threads=2, n_convolutions=5)
+    a_writeMBps, a_readMBps = convolutions(sidelength=150, n_threads=2, n_convolutions=10)
 
     print('max_write: %.1fMB/s' % a_writeMBps.max())
     print('avg_write: %.1fMB/s' % a_writeMBps.mean())
