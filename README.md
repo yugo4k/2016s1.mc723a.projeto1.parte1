@@ -54,7 +54,7 @@ Devem ser executadas 20 medidas para avaliar a média e o desvio padrão, e o de
 ## Medições base (uma máquina)
 
 Processador: AMD PhenonII, 4 cores, 3.2MHz  
-Memória: 10GB, ddr3, 1.333 MHz
+Memória: 10GB, ddr3, 1.333 MHz  
 Armazenamento: hdd sata3, 7200rpm, 32MB buffer
 
 ```
@@ -66,5 +66,5 @@ Armazenamento: hdd sata3, 7200rpm, 32MB buffer
 6- velocidade de leitura média: (749 ± 43)MB/s  
 ```
 
-wall time:  
+
 ![wall time](hist.png)
