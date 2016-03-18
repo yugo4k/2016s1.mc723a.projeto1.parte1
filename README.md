@@ -53,7 +53,10 @@ Devem ser executadas 20 medidas para avaliar a média e o desvio padrão, e o de
 
 ## Medições base (uma máquina)
 
-Inclua a especificação dos componentes relevantes e os resultados de desempenho.
+Processador: AMD PhenonII, 4 cores, 3.2MHz
+Memória: 10GB, DDR3
+Armazenamento: 
+
 1- melhor tempo: 13.2s
 2- tempo médio: (13.7 ± 0.2)s
 3- melhor velocidade de escrita: 852MB/s
