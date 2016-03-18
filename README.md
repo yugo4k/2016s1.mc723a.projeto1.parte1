@@ -45,9 +45,9 @@ Além disso é possível aumentar ou diminuir o número de threads em execução
 1- melhor tempo: #s
 2- tempo médio: (# ± #)s
 3- melhor velocidade de escrita: #MB/s
-4- velocidade de escrita: (# ± #)MB/s
+4- velocidade de escrita média: (# ± #)MB/s
 5- melhor velocidade de leitura: #MB/s
-6- velocidade de leitura: (# ± #)MB/s
+6- velocidade de leitura média: (# ± #)MB/s
 ```
 Devem ser executadas 20 medidas para avaliar a média e o desvio padrão, e o desvio padrão de cada medida deve ser usado como margens de erro.
 
@@ -57,9 +57,9 @@ Inclua a especificação dos componentes relevantes e os resultados de desempenh
 1- melhor tempo: 13.2s
 2- tempo médio: (13.7 ± 0.2)s
 3- melhor velocidade de escrita: 852MB/s
-4- velocidade de escrita: (550 ± 362)MB/s
+4- velocidade de escrita média: (550 ± 362)MB/s
 5- melhor velocidade de leitura: 798MB/s
-6- velocidade de leitura: (749 ± 43)MB/s
+6- velocidade de leitura média: (749 ± 43)MB/s
 
 
 ![wall time](hist.png)
