@@ -16,9 +16,9 @@ O programa roda em `python3` e exige que estejam instalados os módulos `numpy` 
 
 ## Como executar
 Basta dar permissão de execução ao arquivo `convolutions.py` e executá-lo; pode-se alterar o número de voxels do cubo, o número de threads utilizadas e o número de convoluções executadas por thread, mas esses parâmetros foram _hardcoded_ para que o desempenho seja igualmente avaliado em todas execuções do programa.  
-Ele fornece como output uma sequência na forma:
-```(ID_THREAD, ID_CONV) VAR_TYPE (N_LAYERS, N_ROWS, N_COLS)
-write: #MB/s
+Ele fornece como output uma sequência na forma:  
+```(ID_THREAD, ID_CONV) VAR_TYPE (N_LAYERS, N_ROWS, N_COLS)  
+write: #MB/s  
 read: #MB/s```  
 que se refere, respectivamente, aos identificadores de thread e convolução, o tipo de variável armazenada, as 3 dimensões do cubo e as velocidades de escrita e leitura.  
 Os dois últimos valores são estatisticamente avaliados no final do output.
