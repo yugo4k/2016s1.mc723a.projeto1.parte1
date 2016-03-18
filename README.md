@@ -34,7 +34,7 @@ Os dois últimos valores são estatisticamente avaliados no final do output.
 ## Como medir o desempenho
 As três primeiras medidas de desempenho é usam o _wall time_ (e.g. com o comando `time` do bash ou o programa de sistemas _unix-like_). A razão para utilizá-la é para sabermos quanto tempo real o programa usou em sua execução. Foram feitas 20 execuções, delas extraídas o tempo mínimo (estimativa de máxima performance), o tempo médio (estimativa de tempo usual) e o desvio padrão (quanto a máquina oscilou entre diferentes execuções do programa).
 
-De maneira similar, é mensurável o tempo de escrita e leitura em disco dos resultados das convoluções, para medir o desempenho de _storage_ da máquina usada.
+De maneira similar, é mensurável o tempo de escrita e leitura em disco dos resultados das convoluções, para medir o desempenho de _storage_ (isso faz parte da saída de `convolutions.py`).
 
 Além disso é possível aumentar ou diminuir o número de threads em execução, para medir o desempenho de _multithreading_.
 
