@@ -37,6 +37,7 @@ Além disso é possível aumentar ou diminuir o número de threads em execução
 
 ## Como apresentar o desempenho
 Como o desempenho deverá ser mostrado. Margem de erro, etc. 
+[wall time](hist.png)
 
 ## Medições base (uma máquina)
 Inclua a especificação dos componentes relevantes e os resultados de desempenho.
