@@ -60,10 +60,10 @@ Armazenamento: hdd sata3, 7200rpm, 32MB buffer
 ```
 1- melhor tempo: 13.2s  
 2- tempo médio: (13.7 ± 0.2)s  
-3- melhor velocidade de escrita: 852MB/s  
-4- velocidade de escrita média: (550 ± 362)MB/s  
-5- melhor velocidade de leitura: 798MB/s  
-6- velocidade de leitura média: (749 ± 43)MB/s  
+3- melhor velocidade de escrita: 14.0MB/s  
+4- velocidade de escrita média: (13.8 ± 0.4)MB/s  
+5- melhor velocidade de leitura: 93.0MB/s  
+6- velocidade de leitura média: (92.1 ± 0.8)MB/s  
 ```
 
 
