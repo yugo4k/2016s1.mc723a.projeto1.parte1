@@ -4,22 +4,24 @@ import numpy as np
 np.set_printoptions(threshold=np.nan, linewidth=250)
 import matplotlib.pyplot as plt
 import multiprocessing as mp
-import line_profiler as lp
+import time
 
-def do_profile(follow=[]):
-    def inner(func):
-        def profiled_func(*args, **kwargs):
-            try:
-                profiler = lp.LineProfiler()
-                profiler.add_function(func)
-                for f in follow:
-                    profiler.add_function(f)
-                profiler.enable_by_count()
-                return func(*args, **kwargs)
-            finally:
-                profiler.print_stats()
-        return profiled_func
-    return inner
+# import line_profiler as lp
+
+# def do_profile(follow=[]):
+#     def inner(func):
+#         def profiled_func(*args, **kwargs):
+#             try:
+#                 profiler = lp.LineProfiler()
+#                 profiler.add_function(func)
+#                 for f in follow:
+#                     profiler.add_function(f)
+#                 profiler.enable_by_count()
+#                 return func(*args, **kwargs)
+#             finally:
+#                 profiler.print_stats()
+#         return profiled_func
+#     return inner
 
 
 def get_image_array(phi, theta, omega=2*np.pi, sidelength=200):
@@ -44,7 +46,7 @@ def get_convolution(a_img, c_thread, c_conv, return_dict):
     return_dict[(c_thread, c_conv)] = a_fft
 
 
-@do_profile(follow=[get_convolution])
+# @do_profile(follow=[get_convolution])
 def convolutions(sidelength=100, n_threads=1, n_convolutions=1):
     a_img = get_image_array(phi=5. * np.pi / 180., theta=45. * np.pi / 180., sidelength=sidelength)
 
@@ -61,7 +63,19 @@ def convolutions(sidelength=100, n_threads=1, n_convolutions=1):
 
     for key in sorted(return_dict.keys()):
         a_fft = return_dict[key]
-        print(key, a_fft.shape)
+        print(key, a_fft.dtype, a_fft.shape)
+
+        now = time.time()
+        a_fft.tofile('/tmp/a_fft_%d_%d.dat' % (key[0], key[1]))
+        elapsed = time.time() - now
+        print('write: %dMB/s' % int(np.round((a_fft.size * 128 / (1024 * 1024 * 8)) / elapsed)))
+
+        now = time.time()
+        a_fft = np.fromfile('/tmp/a_fft_%d_%d.dat' % (key[0], key[1]), dtype=np.complex)
+        elapsed = time.time() - now
+        print('read: %dMB/s' % int(np.round((a_fft.size * 128 / (1024 * 1024 * 8)) / elapsed)))
+
+        print()
 
     # if 0 < n_convolutions:
     #     a_img = np.absolute(a_img)
