@@ -1,16 +1,32 @@
 #!/usr/bin/python3
 
-import sys
 import numpy as np
 np.set_printoptions(threshold=np.nan, linewidth=250)
 import matplotlib.pyplot as plt
 import multiprocessing as mp
+import line_profiler as lp
+
+def do_profile(follow=[]):
+    def inner(func):
+        def profiled_func(*args, **kwargs):
+            try:
+                profiler = lp.LineProfiler()
+                profiler.add_function(func)
+                for f in follow:
+                    profiler.add_function(f)
+                profiler.enable_by_count()
+                return func(*args, **kwargs)
+            finally:
+                profiler.print_stats()
+        return profiled_func
+    return inner
+
 
 def get_image_array(phi, theta, omega=2*np.pi, sidelength=200):
     ll, rr, cc = np.indices([sidelength, sidelength, sidelength], dtype=np.int)
-    a_x = cc# - sidelength // 2
-    a_y = rr# - sidelength // 2
-    a_z = ll# - sidelength // 2
+    a_x = cc
+    a_y = rr
+    a_z = ll
 
     cosphi, sinphi = np.cos(phi), np.sin(phi)
     costheta, sintheta = np.cos(theta), np.sin(theta)
@@ -28,18 +44,8 @@ def get_convolution(a_img, c_thread, c_conv, return_dict):
     return_dict[(c_thread, c_conv)] = a_fft
 
 
-def main():
-    sidelength = 100
-    n_threads = 1
-    n_convolutions = 1
-
-    if 1 < len(sys.argv):
-        sidelength = int(sys.argv[1])
-        if 2 < len(sys.argv):
-            n_threads = int(sys.argv[2])
-            if 3 < len(sys.argv):
-                n_convolutions = int(sys.argv[3])
-
+@do_profile(follow=[get_convolution])
+def convolutions(sidelength=100, n_threads=1, n_convolutions=1):
     a_img = get_image_array(phi=5. * np.pi / 180., theta=45. * np.pi / 180., sidelength=sidelength)
 
     list_proc = []
@@ -84,6 +90,21 @@ def main():
     # cb = plt.colorbar(im)
 
     # plt.show()
+
+
+# import cProfile as cp
+
+def main():
+    # prof = cp.Profile()
+    # try:
+    #     prof.enable()
+    #     convolutions(sidelength=250, n_threads=4, n_convolutions=1)
+    #     prof.disable()
+    # finally:
+    #     prof.print_stats()
+
+    # prof = lp.LineProfiler()
+    convolutions(sidelength=250, n_threads=4, n_convolutions=1)
 
 
 if __name__ == '__main__':
