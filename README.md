@@ -49,7 +49,7 @@ Além disso é possível aumentar ou diminuir o número de threads em execução
 5- melhor velocidade de leitura: #MB/s  
 6- velocidade de leitura média: (# ± #)MB/s  
 ```
-Devem ser executadas 20 medidas para avaliar a média e o desvio padrão, e o desvio padrão de cada medida deve ser usado como margens de erro.
+Devem ser executadas 20 medidas para avaliar a média e o desvio padrão, sendo o último usado como erro da média.
 
 ## Medições base (uma máquina)
 
