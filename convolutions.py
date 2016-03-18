@@ -128,12 +128,12 @@ def main():
     # prof = lp.LineProfiler()
     a_writeMBps, a_readMBps = convolutions(sidelength=150, n_threads=2, n_convolutions=5)
 
-    print('max_write:', a_writeMBps.max())
-    print('avg_write:', a_writeMBps.mean())
-    print('std_write:', a_writeMBps.std())
-    print('max_read:', a_readMBps.max())
-    print('avg_read:', a_readMBps.mean())
-    print('std_read:', a_readMBps.std())
+    print('max_write: %.1fMB/s' % a_writeMBps.max())
+    print('avg_write: %.1fMB/s' % a_writeMBps.mean())
+    print('std_write: %.1fMB/s' % a_writeMBps.std())
+    print('max_read: %.1fMB/s' % a_readMBps.max())
+    print('avg_read: %.1fMB/s' % a_readMBps.mean())
+    print('std_read: %.1fMB/s' % a_readMBps.std())
 
 
 if __name__ == '__main__':

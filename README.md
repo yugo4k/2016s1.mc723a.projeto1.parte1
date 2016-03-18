@@ -9,10 +9,12 @@ No benchmark em questão, a operação de convolução utilizada é a Transforma
 A convolução de imagens é bastante intensiva em processamento e uso de memória, e por ser uma operação extremamente importante para diversas áreas (engenharia, medicina diagnóstica etc), é fundamental avaliar se uma máquina é apropriada para este tipo de uso.
 
 ## O que baixar
-https://github.com/yugo4k/2016s1.mc723a.projeto1.parte1
+
+https://github.com/yugo4k/2016s1.mc723a.projeto1.parte1/convolutions.py
 
 ## Como compilar/instalar
-O programa roda em `python3` e exige que estejam instalados os módulos `numpy` e `multiprocessing`. O ideal é que esses recursos não sejam baixados de repositórios compilados (e.g. _apt-get install_), mas sim sejam compilados através do `pip3` para obter a melhor performance na arquitetura da máquina utilizada.
+O programa roda em `python` (é possível rodá-lo em 2.7 e 3.x) e exige os módulos `numpy` e `multiprocessing`. O ideal é que esses recursos não sejam baixados de repositórios compilados (e.g. _apt-get install_), mas sim sejam compilados através do `pip3` para obter a melhor performance na arquitetura da máquina utilizada.  
+Eles não exigem instalação com permissões de administrador, podendo ser instalados no `home` do usuário.
 
 ## Como executar
 Basta dar permissão de execução ao arquivo `convolutions.py` e executá-lo; pode-se alterar o número de voxels do cubo, o número de threads utilizadas e o número de convoluções executadas por thread, mas esses parâmetros foram _hardcoded_ para que o desempenho seja igualmente avaliado em todas execuções do programa.  
@@ -26,7 +28,12 @@ que se refere, respectivamente, aos identificadores de thread e convolução, o 
 Os dois últimos valores são estatisticamente avaliados no final do output.
 
 ## Como medir o desempenho
-Como que o desempenho é medido através deste programa? Se for através de tempo, você deve especificar claramente qual tempo deverá ser utilizado e indicar o motivo aqui. Quantas vezes a medida deverá ser feita? O que fazer com ela (média, etc) ? Não especificar o tempo será considerado falha grave.
+As três primeiras medidas de desempenho é usam o _wall time_ (e.g. com o comando `time` do bash ou o programa de sistemas _unix-like_). A razão para utilizá-la é para sabermos quanto tempo real o programa usou em sua execução. Foram feitas 20 execuções, delas extraídas o tempo mínimo (estimativa de máxima performance), o tempo médio (estimativa de tempo usual) e o desvio padrão (quanto a máquina oscilou entre diferentes execuções do programa).
+
+De maneira similar, é mensurável o tempo de escrita e leitura em disco dos resultados das convoluções, para medir o desempenho de _storage_ da máquina usada.
+
+Além disso é possível aumentar ou diminuir o número de threads em execução, para medir o desempenho de _multithreading_.
+
 
 ## Como apresentar o desempenho
 Como o desempenho deverá ser mostrado. Margem de erro, etc. 
