@@ -1,12 +1,16 @@
 # Convolução - Grupo 3
+
 ## O que faz? Para que serve?
+
 O programa de benchmark processa convoluções em images tridimensionais, o que é uma operação fundamental em processamento de imagens.  
 Com ele podem-se realizar transformações geométricas, radiométricas, etc.
 No benchmark em questão, a operação de convolução utilizada é a Transformada de Fourier.
 
 
 ## Por que é bom para medir desempenho?
+
 A convolução de imagens é bastante intensiva em processamento e uso de memória, e por ser uma operação extremamente importante para diversas áreas (engenharia, medicina diagnóstica etc), é fundamental avaliar se uma máquina é apropriada para este tipo de uso.
+
 
 ## O que baixar
 
@@ -36,8 +40,26 @@ Além disso é possível aumentar ou diminuir o número de threads em execução
 
 
 ## Como apresentar o desempenho
-Como o desempenho deverá ser mostrado. Margem de erro, etc. 
-![wall time](hist.png)
+
+```
+1- melhor tempo: #s
+2- tempo médio: (# ± #)s
+3- melhor velocidade de escrita: #MB/s
+4- velocidade de escrita: (# ± #)MB/s
+5- melhor velocidade de leitura: #MB/s
+6- velocidade de leitura: (# ± #)MB/s
+```
+Devem ser executadas 20 medidas para avaliar a média e o desvio padrão, e o desvio padrão de cada medida deve ser usado como margens de erro.
 
 ## Medições base (uma máquina)
+
 Inclua a especificação dos componentes relevantes e os resultados de desempenho.
+1- melhor tempo: 13.2s
+2- tempo médio: (13.7 ± 0.2)s
+3- melhor velocidade de escrita: 852MB/s
+4- velocidade de escrita: (550 ± 362)MB/s
+5- melhor velocidade de leitura: 798MB/s
+6- velocidade de leitura: (749 ± 43)MB/s
+
+
+![wall time](hist.png)
